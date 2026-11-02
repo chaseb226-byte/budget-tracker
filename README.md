@@ -8,6 +8,15 @@ It reads a CSV of transactions and totals a month against:
 - **$1,600 monthly spending limit**
 - **$600 rent set-aside, covered first**
 
+## Live web version
+
+**https://chaseb226-byte.github.io/budget-tracker/**
+
+The same rules in the browser (`index.html` / `styles.css` / `script.js`):
+add transactions, import/export CSV, and watch the totals, rent coverage,
+and biggest category update live. Rows are saved only in your own browser
+on your own device — nothing is uploaded anywhere.
+
 ## Rules
 
 | Type in the CSV | How it counts |
@@ -18,7 +27,8 @@ It reads a CSV of transactions and totals a month against:
 
 ## Files
 
-- `budget_tracker.py` — the tool
+- `budget_tracker.py` — the Python tool
+- `index.html`, `styles.css`, `script.js` — the live web version (GitHub Pages)
 - `transactions.csv` — my real November 2026 starter rows (matches the Sheets tracker)
 - `sample_transactions.csv` — made-up example data to try it with
 - `test_budget_tracker.py` — tests, run with `python3 -m unittest -v`
