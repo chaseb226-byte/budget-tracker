@@ -1,0 +1,7 @@
+date,description,type,category,amount
+2026-11-01,Example paycheck,Income,Payroll,815.00
+2026-11-02,Cash tip deposit,Income,Tips,60
+2026-11-03,Groceries example,Spending,Food and drink,120.50
+2026-11-04,Gas example,Spending,Transport,45
+2026-11-05,Phone bill example,Spending,Phone,77
+2026-11-05,Move to own Cash App,Transfer,Own transfer,50
