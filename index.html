@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Budget Tracker — $1,600 Limit, Rent First</title>
+  <meta name="description" content="A simple web budget tracker: $1,600 monthly spending limit with a $600 rent set-aside covered first. Income is payroll plus cash tips; transfers to your own Cash App are ignored." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <p class="eyebrow">November budget · Rent due on the 7th</p>
+    <h1>Budget Tracker</h1>
+    <p class="sub">
+      Spending limit <strong>$1,600</strong> a month, with <strong>$600 for rent
+      set aside first</strong>. Add transactions below — everything is calculated
+      in your browser, nothing is sent anywhere.
+    </p>
+  </header>
+
+  <main>
+    <section class="card summary" aria-live="polite">
+      <div class="stat"><span>Income (payroll + tips)</span><strong id="statIncome">$0.00</strong></div>
+      <div class="stat"><span>Spending</span><strong id="statSpending">$0.00</strong></div>
+      <div class="stat"><span>Remaining allowance</span><strong id="statRemaining">$0.00</strong></div>
+      <div class="stat"><span>Rent still needed</span><strong id="statRent">$0.00</strong></div>
+      <p id="summaryLine" class="summary-line"></p>
+      <p id="biggestLine" class="note"></p>
+      <div id="categoryList" class="chips"></div>
+    </section>
+
+    <section class="card">
+      <h2>Settings</h2>
+      <div class="grid">
+        <label>Monthly spending limit ($)
+          <input type="number" id="limit" value="1600" min="0" step="any" />
+        </label>
+        <label>Rent set-aside ($)
+          <input type="number" id="rent" value="600" min="0" step="any" />
+        </label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Add a transaction</h2>
+      <div class="grid">
+        <label>Date
+          <input type="date" id="fDate" value="2026-11-01" />
+        </label>
+        <label>Description
+          <input type="text" id="fDesc" placeholder="e.g. Groceries" />
+        </label>
+        <label>Type
+          <select id="fType">
+            <option value="Spending">Spending</option>
+            <option value="Income">Income</option>
+            <option value="Transfer">Transfer (own money — ignored)</option>
+          </select>
+        </label>
+        <label>Category
+          <input type="text" id="fCategory" placeholder="e.g. Food and drink" />
+        </label>
+        <label>Amount ($)
+          <input type="number" id="fAmount" placeholder="0.00" min="0" step="any" />
+        </label>
+      </div>
+      <button id="addBtn" type="button">Add transaction</button>
+      <p class="note">Transfers to/from your own Cash App count as Transfer — they are moves of your own money, not income or spending.</p>
+    </section>
+
+    <section class="card">
+      <h2>Transactions</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Date</th><th>Description</th><th>Type</th><th>Category</th><th>Amount</th><th></th></tr>
+          </thead>
+          <tbody id="txBody"></tbody>
+        </table>
+      </div>
+      <div class="actions">
+        <label class="file-label">Import CSV
+          <input type="file" id="csvFile" accept=".csv,text/csv" />
+        </label>
+        <button id="exportBtn" type="button" class="button-secondary">Export CSV</button>
+        <button id="resetBtn" type="button" class="button-secondary">Reset to starter rows</button>
+      </div>
+      <p class="note">Your rows are saved in this browser on this device. CSV format: date, description, type, category, amount.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built by Dakota Beerbower · Web version of the Python budget tracker ·
+      <a href="https://github.com/chaseb226-byte/budget-tracker">Source on GitHub</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
